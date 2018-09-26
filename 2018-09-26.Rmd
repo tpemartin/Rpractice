@@ -45,3 +45,77 @@ b3<-"'你好'"
 b4<-'"你好"'
 ```
 
+## 2nd class
+
+```{r}
+round(2.3875)
+```
+
+```{r}
+round(2.3875, digits = 2)
+```
+
+
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+
+```{r}
+student$出生地
+```
+
+```{r}
+as.factor(student$出生地) -> student$出生地
+```
+
+```{r}
+levels(student$出生地)
+```
+
+```{r}
+table(student$`出生地`)
+```
+
+```{r}
+as.factor(student$入學年) -> student$入學年
+as.factor(student$性別) -> student$性別
+```
+
+```{r}
+factor(student$身高級距,
+       levels=c("(0,150]","(150,155]", "(155,160]", "(160,165]" ,"(165,170]", "(170,175]" ,"(175,180]" ,"(180,185]", "(185,200]"),
+       ordered=TRUE) -> student$身高級距
+```
+
+```{r}
+heightLevels <- c("(0,150]","(150,155]", "(155,160]", "(160,165]" ,"(165,170]", "(170,175]" ,"(175,180]" ,"(180,185]", "(185,200]")
+factor(student$身高級距,
+       levels=heightLevels,
+       ordered=TRUE) -> student$身高級距
+```
+
+```{r}
+a<-"2017-01-31"
+```
+
+```{r}
+library(lubridate)
+a <- ymd("2017-01-31") 
+b <- ymd_hms("2017-01-31 20:11:59")
+```
+
+```{r}
+a <- ymd("2017/01/31") 
+b <- ymd_hms("2017-01-31 2:53:00pm")
+```
+
+```{r}
+library(readr)
+filmVotingData <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv")
+```
+

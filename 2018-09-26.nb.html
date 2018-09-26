@@ -239,9 +239,125 @@ b2&lt;-'你好'</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div id="nd-class" class="section level2">
+<h2>2nd class</h2>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm91bmQoMi4zODc1KVxuYGBgIn0= -->
+<pre class="r"><code>round(2.3875)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm91bmQoMi4zODc1LCBkaWdpdHMgPSAyKVxuYGBgIn0= -->
+<pre class="r"><code>round(2.3875, digits = 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbnN0dWRlbnQgPC0gcmVhZF9jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2NvdXJzZS0xMDctMS1wcm9ncmFtbWluZy1mb3ItZGF0YS1zY2llbmNlL21hc3Rlci9kYXRhL3N0dWRlbnQuY3N2XCIpXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShtYWdyaXR0cilcbnN0dWRlbnQgJTw+JSBtdXRhdGUoXG4gIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+student &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv&quot;)
+library(dplyr)
+library(magrittr)
+student %&lt;&gt;% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3R1ZGVudCTlh7rnlJ/lnLBcbmBgYCJ9 -->
+<pre class="r"><code>student$出生地</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKHN0dWRlbnQk5Ye655Sf5ZywKSAtPiBzdHVkZW50JOWHuueUn+WcsFxuYGBgIn0= -->
+<pre class="r"><code>as.factor(student$出生地) -&gt; student$出生地</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGV2ZWxzKHN0dWRlbnQk5Ye655Sf5ZywKVxuYGBgIn0= -->
+<pre class="r"><code>levels(student$出生地)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoc3R1ZGVudCRg5Ye655Sf5ZywYClcbmBgYCJ9 -->
+<pre class="r"><code>table(student$`出生地`)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKHN0dWRlbnQk5YWl5a245bm0KSAtPiBzdHVkZW50JOWFpeWtuOW5tFxuYXMuZmFjdG9yKHN0dWRlbnQk5oCn5YilKSAtPiBzdHVkZW50JOaAp+WIpVxuYGBgIn0= -->
+<pre class="r"><code>as.factor(student$入學年) -&gt; student$入學年
+as.factor(student$性別) -&gt; student$性別</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmFjdG9yKHN0dWRlbnQk6Lqr6auY57Sa6LedLFxuICAgICAgIGxldmVscz1jKFwiKDAsMTUwXVwiLFwiKDE1MCwxNTVdXCIsIFwiKDE1NSwxNjBdXCIsIFwiKDE2MCwxNjVdXCIgLFwiKDE2NSwxNzBdXCIsIFwiKDE3MCwxNzVdXCIgLFwiKDE3NSwxODBdXCIgLFwiKDE4MCwxODVdXCIsIFwiKDE4NSwyMDBdXCIpLFxuICAgICAgIG9yZGVyZWQ9VFJVRSkgLT4gc3R1ZGVudCTouqvpq5jntJrot51cbmBgYCJ9 -->
+<pre class="r"><code>factor(student$身高級距,
+       levels=c(&quot;(0,150]&quot;,&quot;(150,155]&quot;, &quot;(155,160]&quot;, &quot;(160,165]&quot; ,&quot;(165,170]&quot;, &quot;(170,175]&quot; ,&quot;(175,180]&quot; ,&quot;(180,185]&quot;, &quot;(185,200]&quot;),
+       ordered=TRUE) -&gt; student$身高級距</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVpZ2h0TGV2ZWxzIDwtIGMoXCIoMCwxNTBdXCIsXCIoMTUwLDE1NV1cIiwgXCIoMTU1LDE2MF1cIiwgXCIoMTYwLDE2NV1cIiAsXCIoMTY1LDE3MF1cIiwgXCIoMTcwLDE3NV1cIiAsXCIoMTc1LDE4MF1cIiAsXCIoMTgwLDE4NV1cIiwgXCIoMTg1LDIwMF1cIilcbmZhY3RvcihzdHVkZW50JOi6q+mrmOe0mui3nSxcbiAgICAgICBsZXZlbHM9aGVpZ2h0TGV2ZWxzLFxuICAgICAgIG9yZGVyZWQ9VFJVRSkgLT4gc3R1ZGVudCTouqvpq5jntJrot51cbmBgYCJ9 -->
+<pre class="r"><code>heightLevels &lt;- c(&quot;(0,150]&quot;,&quot;(150,155]&quot;, &quot;(155,160]&quot;, &quot;(160,165]&quot; ,&quot;(165,170]&quot;, &quot;(170,175]&quot; ,&quot;(175,180]&quot; ,&quot;(180,185]&quot;, &quot;(185,200]&quot;)
+factor(student$身高級距,
+       levels=heightLevels,
+       ordered=TRUE) -&gt; student$身高級距</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYTwtXCIyMDE3LTAxLTMxXCJcbmBgYCJ9 -->
+<pre class="r"><code>a&lt;-&quot;2017-01-31&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5hIDwtIHltZChcIjIwMTctMDEtMzFcIikgXG5iIDwtIHltZF9obXMoXCIyMDE3LTAxLTMxIDIwOjExOjU5XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(lubridate)
+a &lt;- ymd(&quot;2017-01-31&quot;) 
+b &lt;- ymd_hms(&quot;2017-01-31 20:11:59&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSB5bWQoXCIyMDE3LzAxLzMxXCIpIFxuYiA8LSB5bWRfaG1zKFwiMjAxNy0wMS0zMSAyOjUzOjAwcG1cIilcbmBgYCJ9 -->
+<pre class="r"><code>a &lt;- ymd(&quot;2017/01/31&quot;) 
+b &lt;- ymd_hms(&quot;2017-01-31 2:53:00pm&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmZpbG1Wb3RpbmdEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS8lRTclQUMlQUMlRTQlQjglODklRTUlQjElODYlRTclQjYlOTMlRTYlQkYlOUYlRTYlOTIlQUQlRTUlQUUlQTIlRTclQUIlQjYlRTglQjMlQkQlRTUlOEYlODMlRTglQjMlQkQlRTQlQkQlOUMlRTUlOTMlODElRTYlOEElOTUlRTclQTUlQTglRTclQjUlOTAlRTYlOUUlOUMlRTYlQTglQTMlRTYlOUMlQUMlMjAtJTIwU2hlZXQxLmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+filmVotingData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYGBgDQoNCmBgYHtyfQ0KYTwtMw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQpgYGB7cn0NCm51bTE8LTEuNTY4DQpudW0yPC0yLjEyMQ0Kcm91bmQobnVtMSxkaWdpdHMgPSAyKSAtPiByb3VuZE51bTENCmBgYA0KDQoNCg0KYGBge3J9DQpiPC0i5L2g5aW9Ig0KYlZlY3RvcjwtYygi5L2g5aW9IiwiSG93IGFyZSB5b3U/IikNCmIyPC0n5L2g5aW9Jw0KYGBgDQoNCmBgYHtyfQ0KYjM8LSIn5L2g5aW9JyINCmBgYA0KDQpgYGB7cn0NCmI0PC0nIuS9oOWlvSInDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYGBgDQoNCmBgYHtyfQ0KYTwtMw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQpgYGB7cn0NCm51bTE8LTEuNTY4DQpudW0yPC0yLjEyMQ0Kcm91bmQobnVtMSxkaWdpdHMgPSAyKSAtPiByb3VuZE51bTENCmBgYA0KDQoNCg0KYGBge3J9DQpiPC0i5L2g5aW9Ig0KYlZlY3RvcjwtYygi5L2g5aW9IiwiSG93IGFyZSB5b3U/IikNCmIyPC0n5L2g5aW9Jw0KYGBgDQoNCmBgYHtyfQ0KYjM8LSIn5L2g5aW9JyINCmBgYA0KDQpgYGB7cn0NCmI0PC0nIuS9oOWlvSInDQpgYGANCg0KIyMgMm5kIGNsYXNzDQoNCmBgYHtyfQ0Kcm91bmQoMi4zODc1KQ0KYGBgDQoNCmBgYHtyfQ0Kcm91bmQoMi4zODc1LCBkaWdpdHMgPSAyKQ0KYGBgDQoNCg0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0Kc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShtYWdyaXR0cikNCnN0dWRlbnQgJTw+JSBtdXRhdGUoDQogIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKQ0KYGBgDQoNCmBgYHtyfQ0Kc3R1ZGVudCTlh7rnlJ/lnLANCmBgYA0KDQpgYGB7cn0NCmFzLmZhY3RvcihzdHVkZW50JOWHuueUn+WcsCkgLT4gc3R1ZGVudCTlh7rnlJ/lnLANCmBgYA0KDQpgYGB7cn0NCmxldmVscyhzdHVkZW50JOWHuueUn+WcsCkNCmBgYA0KDQpgYGB7cn0NCnRhYmxlKHN0dWRlbnQkYOWHuueUn+WcsGApDQpgYGANCg0KYGBge3J9DQphcy5mYWN0b3Ioc3R1ZGVudCTlhaXlrbjlubQpIC0+IHN0dWRlbnQk5YWl5a245bm0DQphcy5mYWN0b3Ioc3R1ZGVudCTmgKfliKUpIC0+IHN0dWRlbnQk5oCn5YilDQpgYGANCg0KYGBge3J9DQpmYWN0b3Ioc3R1ZGVudCTouqvpq5jntJrot50sDQogICAgICAgbGV2ZWxzPWMoIigwLDE1MF0iLCIoMTUwLDE1NV0iLCAiKDE1NSwxNjBdIiwgIigxNjAsMTY1XSIgLCIoMTY1LDE3MF0iLCAiKDE3MCwxNzVdIiAsIigxNzUsMTgwXSIgLCIoMTgwLDE4NV0iLCAiKDE4NSwyMDBdIiksDQogICAgICAgb3JkZXJlZD1UUlVFKSAtPiBzdHVkZW50JOi6q+mrmOe0mui3nQ0KYGBgDQoNCmBgYHtyfQ0KaGVpZ2h0TGV2ZWxzIDwtIGMoIigwLDE1MF0iLCIoMTUwLDE1NV0iLCAiKDE1NSwxNjBdIiwgIigxNjAsMTY1XSIgLCIoMTY1LDE3MF0iLCAiKDE3MCwxNzVdIiAsIigxNzUsMTgwXSIgLCIoMTgwLDE4NV0iLCAiKDE4NSwyMDBdIikNCmZhY3RvcihzdHVkZW50JOi6q+mrmOe0mui3nSwNCiAgICAgICBsZXZlbHM9aGVpZ2h0TGV2ZWxzLA0KICAgICAgIG9yZGVyZWQ9VFJVRSkgLT4gc3R1ZGVudCTouqvpq5jntJrot50NCmBgYA0KDQpgYGB7cn0NCmE8LSIyMDE3LTAxLTMxIg0KYGBgDQoNCmBgYHtyfQ0KbGlicmFyeShsdWJyaWRhdGUpDQphIDwtIHltZCgiMjAxNy0wMS0zMSIpIA0KYiA8LSB5bWRfaG1zKCIyMDE3LTAxLTMxIDIwOjExOjU5IikNCmBgYA0KDQpgYGB7cn0NCmEgPC0geW1kKCIyMDE3LzAxLzMxIikgDQpiIDwtIHltZF9obXMoIjIwMTctMDEtMzEgMjo1MzowMHBtIikNCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnkocmVhZHIpDQpmaWxtVm90aW5nRGF0YSA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS8lRTclQUMlQUMlRTQlQjglODklRTUlQjElODYlRTclQjYlOTMlRTYlQkYlOUYlRTYlOTIlQUQlRTUlQUUlQTIlRTclQUIlQjYlRTglQjMlQkQlRTUlOEYlODMlRTglQjMlQkQlRTQlQkQlOUMlRTUlOTMlODElRTYlOEElOTUlRTclQTUlQTglRTclQjUlOTAlRTYlOUUlOUMlRTYlQTglQTMlRTYlOUMlQUMlMjAtJTIwU2hlZXQxLmNzdiIpDQpgYGANCg0K</div>
 
 
 
